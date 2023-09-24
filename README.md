@@ -1,7 +1,5 @@
-# Welcome to streamlit
+# Welcome to FitMate AI
 
-This is the app you get when you run `streamlit hello`, extracted as its own app.
+FitMate AI can provide you a personalized workout programe and nutritional advice based on your need.
 
-Edit [Hello.py](./Hello.py) to customize this app to your heart's desire. ❤️
-
-Check it out on [Streamlit Community Cloud](https://st-hello-app.streamlit.app/)
+Check it out on [FitMate AI](https://fitmatef.streamlit.app/)
