@@ -91,6 +91,16 @@ def fit_mate():
         data.extend(health_stat)
         data.extend(goals)
         add_to_json(data)
+        response = open("responses.txt", 'r')     # predictor.predict(data)
+        texto = ""
+        for ln in response:
+            texto += ln
+        st.text_area(
+            label= "# Respose",
+            height=1000,
+            value=texto
+        )
+        response.close()
     
 
 if __name__ == "__main__":
