@@ -14,7 +14,7 @@ def basic_information():
     basic_info[0].text_input(
         label="**Full Name**",
         placeholder="John, Smith",
-        max_chars=100
+        max_chars=50
     )
     basic_info[1].date_input(
         '**Date of birth**'
@@ -33,20 +33,22 @@ def health_status():
     )
     diet = st.text_input(
         label="**Dietary restrictions**",
-        placeholder="None",
+        placeholder="Vegetarian, vegan, lactose intolerance, etc.",
         max_chars=100
 
     )
     med_cond = st.text_area(
         label="**Medical condition**",
+        placeholder="No known medical conditions.",
         max_chars=300
     )
     return [fit_lvl, diet, med_cond]
 
 def fit_goals():
-    st.subheader("Goals")
+    st.subheader("Fitness Goals")
     fitness_goals = st.text_area(
         label="**Fitness goals**",
+        placeholder="Improve cardiovascular health,\nIncrease muscle mass,\nDecrease fat tissue,\n...",
         max_chars=300
     )
     freq = st.slider(
@@ -75,7 +77,7 @@ def fit_mate():
         initial_sidebar_state="collapsed"
     )
     st.title("Welcome to FitMate AI! 👋")
-    st.write("##### _FitMate AI can provide you a personalized workout programe and nutritional advice based on your need._")
+    st.caption(" _FitMate AI can provide you a personalized workout programe and nutritional advice based on your need._")
     basic_info = basic_information()
     health_stat = health_status()
     goals = fit_goals()

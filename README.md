@@ -2,4 +2,4 @@
 
 _**FitMate AI** can provide you a personalized workout programe and nutritional advice based on your need._
 
-Check it out on [FitMate AI](https://fitmatef.streamlit.app/)
+Check out our demo [**FitMate AI**](https://fitmate.streamlit.app/)
