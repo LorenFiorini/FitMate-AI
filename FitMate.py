@@ -56,6 +56,17 @@ def fit_goals():
         step=1,
         format="%i days a week"
     )
+    return [fitness_goals, freq]
+
+def add_to_json(data):
+    out_file = open("database.csv", 'a')
+    for i in range(len(data)):
+        if i > 0:
+            out_file.write(", ")
+        out_file.write(str(data[i]))
+    out_file.write("\n")
+    out_file.close()
+
 
 def fit_mate():
     st.set_page_config(
@@ -68,7 +79,11 @@ def fit_mate():
     basic_info = basic_information()
     health_stat = health_status()
     goals = fit_goals()
-
+    st.button(
+        label="Submit",
+        on_click=add_to_json(basic_info + health_stat + goals)
+    )
+    
 
 if __name__ == "__main__":
     fit_mate()
