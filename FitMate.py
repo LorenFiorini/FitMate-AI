@@ -7,19 +7,20 @@ LOGGER = get_logger(__name__)
 
 def basic_information():
     st.subheader("Basic Information")
+    res = [""] * 2
     basic_info = st.columns(
         spec=2,
         gap="medium"
     )
-    basic_info[0].text_input(
+    res[0] = basic_info[0].text_input(
         label="**Full Name**",
         placeholder="John, Smith",
         max_chars=50
     )
-    basic_info[1].date_input(
+    res[1] = basic_info[1].date_input(
         '**Date of birth**'
     )
-    return basic_info
+    return res
 
 def health_status():
     st.subheader("Health Status")
@@ -65,7 +66,7 @@ def add_to_json(data):
     for i in range(len(data)):
         if i > 0:
             out_file.write(", ")
-        out_file.write(str(data[i]))
+        out_file.write('"' + str(data[i]) + '"' )
     out_file.write("\n")
     out_file.close()
 
@@ -81,10 +82,15 @@ def fit_mate():
     basic_info = basic_information()
     health_stat = health_status()
     goals = fit_goals()
-    st.button(
+    submitted = st.button(
         label="Submit",
-        on_click=add_to_json(basic_info + health_stat + goals)
     )
+    if submitted:
+        data = []
+        data.extend(basic_info)
+        data.extend(health_stat)
+        data.extend(goals)
+        add_to_json(data)
     
 
 if __name__ == "__main__":
